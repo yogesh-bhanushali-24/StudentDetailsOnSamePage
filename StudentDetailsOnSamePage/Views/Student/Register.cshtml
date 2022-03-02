@@ -1,0 +1,168 @@
+﻿@model StudentDetailsOnSamePage.Models.Student
+
+
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<h1>Register</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Register">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailId" class="control-label"></label>
+                <input asp-for="EmailId" class="form-control" />
+                <span asp-validation-for="EmailId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobile" class="control-label"></label>
+                <input asp-for="Mobile" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Course" class="control-label"></label>
+                <select asp-for="Course" class="form-control" asp-items="new SelectList(ViewBag.Course)">
+                </select>
+                <span asp-validation-for="Course" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fees" class="control-label"></label>
+                <input asp-for="Fees" class="form-control" />
+                <span asp-validation-for="Fees" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <h1></h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Email ID
+
+                </th>
+                <th>
+                    Mobile
+                </th>
+                <th>
+                    Gender
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    Course
+                </th>
+                <th>
+                    Fees
+                </th>
+                <th>
+                    Total Fees
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+  
+
+                <tr>
+                    <td>
+                        @TempData.Peek("first")
+                    </td>
+                    <td>
+                        @TempData.Peek("last")
+                    </td>
+                    <td>
+                         @TempData.Peek("email")
+                    </td>
+                    <td>
+                     
+                        @TempData.Peek("mobile")
+                        
+                    </td>
+                    <td>
+                        @TempData.Peek("gender")
+                       
+                    </td>
+                    <td>
+                        @TempData.Peek("city")
+                    </td>
+                    <td>
+                        @TempData.Peek("address")
+                        
+                    </td>
+                    <td>
+                        @TempData.Peek("course")
+                    </td>
+                    <td>
+                        @TempData.Peek("fees")
+                    </td>
+                    <td>
+                        @TempData.Peek("totalfees")
+
+                    </td>
+                   
+                    
+                </tr>
+        
+        </tbody>
+
+    </table>
+
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
